@@ -17,6 +17,10 @@ elif [[ "$1" == "--help" || "$1" == "-h" ]]; then
     echo "Użycie: skrypt.sh --date|--logs [N]"
     echo "--date: Wyświetla dzisiejszą datę w formacie YYYY-MM-DD."
     echo "--logs [N]: Tworzy N plików logu o nazwie logx.txt (dla x od 1 do N) z wpisem o nazwie, nazwie skryptu i dacie utworzenia."
+elif [[ "$1" == "--init"]]; then
+    url="https://github.com/krzysztoffarys00/cw1"	
+    git clone $url
+    export PATH="$PATH:$(pwd)"
 else
     echo "Nieprawidłowe argumenty wywołania."
 fi
