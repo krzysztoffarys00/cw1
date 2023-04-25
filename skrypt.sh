@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[ "$1" == "--date" ]]; then
+if [[ "$1" == "--date" || "$1" == "-d" ]]; then
     echo "Dzisiaj jest $(date +%Y-%m-%d)"
-elif [[ "$1" == "--logs" ]]; then
+elif [[ "$1" == "--logs" || "$1" == "-l" ]]; then
     if [[ "$2" =~ ^[0-9]+$ ]]; then
         for i in $(seq 1 "$2"); do
             filename="log${i}.txt"
@@ -13,7 +13,7 @@ elif [[ "$1" == "--logs" ]]; then
     else
         echo "Nieprawidłowy argument wywołania"
     fi
-elif [[ "$1" == "--help" ]]; then
+elif [[ "$1" == "--help" || "$1" == "-h" ]]; then
     echo "Użycie: skrypt.sh --date|--logs [N]"
     echo "--date: Wyświetla dzisiejszą datę w formacie YYYY-MM-DD."
     echo "--logs [N]: Tworzy N plików logu o nazwie logx.txt (dla x od 1 do N) z wpisem o nazwie, nazwie skryptu i dacie utworzenia."
